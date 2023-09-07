@@ -4,7 +4,7 @@
 
 /**
  * main-display certain text
- * Return integer indicates that main executes successfully
+ * Return 0 and exits program
  */
 
 int  main(void)

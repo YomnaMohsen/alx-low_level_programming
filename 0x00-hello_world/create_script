@@ -1,0 +1,8 @@
+#!/bin/bash
+echo "enter your file name"
+read var
+touch $var
+echo "enter your command"
+read var1
+echo -e  "#!/bin/bash\n$var1"  >> $var
+chmod u+x $var

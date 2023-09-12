@@ -2,7 +2,7 @@
 
 
 /**
- * main- calling _putchar fn
+ * print_alphabet- uses _putchar to print lowercase alpha
  *
  * Return: nothing
  */

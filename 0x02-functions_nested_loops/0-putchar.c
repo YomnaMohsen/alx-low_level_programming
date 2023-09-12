@@ -2,8 +2,8 @@
 
 
 /**
- *
  * main- calling _putchar fn
+ *
  * Return: 0 and exits program
  */
 

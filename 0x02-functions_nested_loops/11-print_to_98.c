@@ -17,8 +17,8 @@ void print_to_98(int n)
 			_putchar(i + '0');
 			if (i == 98)
 				break;
-			_putchar(",");
-			_putchar(" ");
+			_putchar(',');
+			_putchar(' ');
 		}
 
 	}
@@ -29,8 +29,8 @@ void print_to_98(int n)
 			_putchar(i + '0');
 			if (i == 98)
 				break;
-			_putchar(",");
-			_putchar(" ");
+			_putchar(',');
+			_putchar(' ');
 		}
 	}
 }

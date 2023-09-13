@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "main.h"
 
 
 /**
@@ -14,10 +14,11 @@ void print_to_98(int n)
 	{
 		for (i = n; i <= 98; i++)
 		{
-			printf("%d", i);
+			_putchar(i + '0');
 			if (i == 98)
 				break;
-			printf(", ");
+			_putchar(",");
+			_putchar(" ");
 		}
 
 	}
@@ -25,10 +26,11 @@ void print_to_98(int n)
 	{
 		for (i = n; i >= 98; i--)
 		{
-			printf("%d", i);
+			_putchar(i + '0');
 			if (i == 98)
 				break;
-			printf(", ");
+			_putchar(",");
+			_putchar(" ");
 		}
 	}
 }

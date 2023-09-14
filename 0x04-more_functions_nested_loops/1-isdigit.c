@@ -7,7 +7,7 @@
  * @c: ascii code  of char to be checked
  * Return: integer 0 for false , 1  for true
  */
-int _isupper(int c)
+int _isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);

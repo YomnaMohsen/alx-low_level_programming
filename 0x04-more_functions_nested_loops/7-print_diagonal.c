@@ -2,9 +2,9 @@
 
 
 /**
- * print_diagonal- print \" \\" charcter n times to form diagonal
+ * print_diagonal- print backslash charcter n times to form diagonal
  *
- * @n: number of times for printing \ charcter
+ * @n: number of times for printing backslash charcter
  * Return: nothing
  */
 void print_diagonal(int n)
@@ -20,5 +20,6 @@ void print_diagonal(int n)
 		 _putchar('\\');
 		 _putchar('\n');
 	}
-	_putchar('\n');
+	if ( n <= 0)
+		_putchar('\n');
 }

@@ -4,9 +4,9 @@
 /**
  * main- fizz buzz problem
  *
- * Return: nothing
+ * Return: int 0
  */
-void main(void)
+int main(void)
 {
 	int i;
 
@@ -24,4 +24,5 @@ void main(void)
 			printf(" ");
 	}
 	printf("\n");
+	return (0);
 }

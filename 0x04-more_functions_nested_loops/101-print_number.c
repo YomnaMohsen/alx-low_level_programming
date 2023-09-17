@@ -7,6 +7,7 @@
  * @n: number that will be printed
  * Return: Nothing
  */
+
 void print_number(int n)
 {
 	int pow_r = 1, m, digit;

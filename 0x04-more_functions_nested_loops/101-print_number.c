@@ -11,7 +11,7 @@
 
 void print_number(int n)
 {
-	int pow_r = 1, m, digit;
+	unsigned int pow_r = 1, m, digit;
 
 	if (n < 0)
 	{

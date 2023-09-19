@@ -14,10 +14,10 @@ void print_to_98(int n)
 	{
 		for (i = n; i <= 98; i++)
 		{
-			printf("%d", i);
 			if (i == 98)
-				break;
-			printf(", ");
+				printf("%d\n", n);
+			else
+				printf("%d, ", i);
 		}
 
 	}
@@ -25,10 +25,10 @@ void print_to_98(int n)
 	{
 		for (i = n; i >= 98; i--)
 		{
-			printf("%d", i);
 			if (i == 98)
-				break;
-			printf(", ");
+				printf("%d\n", i);
+			else
+				printf("%d, ", i);
 		}
 	}
 }

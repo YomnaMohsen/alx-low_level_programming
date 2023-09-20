@@ -13,8 +13,8 @@ char *string_toupper(char *a)
 
 	while (a[i] != '\0')
 	{
-		if (a[i] < 'A' && a[i] > 'Z')
-			if (a[i] < 'a' && a[i] > 'z')
+		if (a[i] < 'A' || a[i] > 'Z')
+			if (a[i] < 'a' || a[i] > 'z')
 			{
 				i++;
 				continue;

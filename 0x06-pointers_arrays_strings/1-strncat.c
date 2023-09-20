@@ -1,14 +1,15 @@
 #include "main.h"
 
 /**
- * _strcat - concate 2 strings
+ * _strncat - concate n chars from src to dest
  *
  *@dest: pointer to destination string
  *@src: pointer to source string
+ *@n: number of chars from src that will be added to dest
  * Return: pointer to dest string
  */
 
-char *_strcat(char *dest, char *src)
+char *_strncat(char *dest, char *src, int n)
 {
 	int len = 0, i = 0;
 
@@ -18,7 +19,7 @@ char *_strcat(char *dest, char *src)
 	}
 	i = 0;
 
-	while (src[i] != '\0')
+	while (src[i] != '\0' && n--)
 	{
 		dest[len + i] = src[i];
 		i++;

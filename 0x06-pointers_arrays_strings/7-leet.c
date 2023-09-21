@@ -4,7 +4,7 @@
  *leet - encode string
  *
  *@a: pointer array of char
- * Return: pointer to string
+ *Return: pointer to string
  */
 
 char *leet(char *a)

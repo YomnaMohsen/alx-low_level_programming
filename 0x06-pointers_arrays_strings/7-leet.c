@@ -10,7 +10,7 @@
 char *leet(char *a)
 {
 	int i = 0, j;
-	char s[] = {'a', 'A', 'e', 'E', 'o', 'O', 't', 'T', 'l', 'L', '\0'};
+	char s[] = {'A', 'E', 'O', 'T', 'L', '\0'};
 	int num[] = {4, 3, 0, 7, 1};
 
 

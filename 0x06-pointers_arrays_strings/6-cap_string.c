@@ -22,20 +22,17 @@ char *cap_string(char *a)
 			}
 			else
 			{
-				if (a[i - 1] > 'A' ||  a[i - 1] < 'Z')
+				if (a[i - 1] < 'A' ||  a[i - 1] > 'Z')
 				{
-					if (a[i - 1] > '0' || a[i - 1] < '9')
-						a[i] -= 32;
-					else
+					if (a[i - 1] < 'a' || a[i - 1] > 'z')
 					{
-						i++;
-						continue;
+						if (a[i - 1] < '0' || a[i - 1] > '9')
+							a[i] -= 32;
 					}
-
 				}
 			}
-			i++;
 		}
+		i++;
 	}
 	return (a);
 }

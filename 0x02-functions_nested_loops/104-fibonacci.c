@@ -16,7 +16,7 @@ int main(void)
 	for (i = 1; i < 98; i++)
 	{
 		series = tmp1 + tmp2;
-		if (i < 49)
+		if (i < 97)
 		{
 			printf("%lu, ", series);
 		}

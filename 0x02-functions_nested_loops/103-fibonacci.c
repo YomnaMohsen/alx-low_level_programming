@@ -9,7 +9,7 @@
  */
 int main(void)
 {
-	int i, sum = 0;
+	int sum = 0;
 	int  tmp1 = 1, tmp2 = 1, series;
 
 	while (series < 4000000)

@@ -57,6 +57,7 @@ void print_buffer(char *b, int n)
 			else
 				end = 10;
 			printline(b, st * 10, end);
+			putchar('\n');
 		}
 	}
 	else

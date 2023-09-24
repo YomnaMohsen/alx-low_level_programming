@@ -6,25 +6,31 @@
  *
  *@arr: pointer array of char
  *@st: start index to print from
+ *@end: number of char that will be printed
  *Return: Nothing
  */
-void printline(char *arr, int st)
+void printline(char *arr, int st, int end)
 {
-	int i, j;
+	int i = 0;
 
-	j = st;
-	for (i = 0; i < 5 && i++)
+	while (i < 10)
 	{
-		printf("%02x%02x", arr[j], arr[j + 1]);
-		j += 2;
+		if (i < end)
+			printf("%02x", arr[st + i]);
+		else
+			printf("  ");
+		if (i % 2)
+			putchar(' ');
+		i++;
 	}
-	for (i = 0; i < 10 ; i++)
+	i = 0;
+	while (i < end)
 	{
-		if (a > 31 && a < 127)
-			putchar(arr[st]);
+		if (arr[st + i]  > 31 && arr[st + i] < 127)
+			putchar(arr[st + i]);
 		else
 			putchar('.');
-		st++;
+		i++;
 	}
 }
 
@@ -38,21 +44,22 @@ void printline(char *arr, int st)
 
 void print_buffer(char *b, int n)
 {
-	int st, len, add = 10, j;
+	int st, end;
 
-	if (n % 10 == 0 && n != 0)
-		len = (n / 10) + 1;
-	else
-		len = n / 10;
-
-
-	for (j = 0; j < len; j++)
+	if (n > 0)
 	{
-		printf("%08x", 10 * j);
-		printf(": ");
-		printline(b, 10 * j);
+		for (st = 0; st <= (n - 1) / 10 ; st++)
+		{
+			printf("%08x", 10 * st);
+			printf(": ");
+			if (n - (st * 10) < 10)
+				end = n - (st * 10);
+			else
+				end = 10;
+			printline(b, st * 10, end);
+		}
 	}
-	if (n == 0)
+	else
 		printf("\n");
 }
 

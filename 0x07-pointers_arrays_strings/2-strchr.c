@@ -9,22 +9,19 @@
  */
 char *_strchr(char *s, char c)
 {
-	int found = 0;
 
 	while (*s != '\0')
 	{
 		if (*s == c)
 		{
-			found = 1;
-			break;
+			return (s);
 		}
 		s++;
 	}
-	if (found)
+	if (*s == c)
 	{
 		return (s);
 	}
-	
 	else
 		return (NULL);
 }

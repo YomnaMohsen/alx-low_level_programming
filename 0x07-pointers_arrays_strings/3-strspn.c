@@ -7,7 +7,7 @@
  * @s: the main string to be scanned
  * Return: the length of initial segment which contains char in substring
  */
-int *_strspn(char *s, char *accept)
+int _strspn(char *s, char *accept)
 {
 	int len = 0;
 

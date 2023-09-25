@@ -7,26 +7,25 @@
  * @s: the main string to be scanned
  * Return: the length of initial segment which contains char in substring
  */
-int _strspn(char *s, char *accept)
+unsigned int _strspn(char *s, char *accept)
 {
-	int len = 0;
+	unsigned int len = 0;
+	int i, j;
 
-	while (*s != '\0')
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		while (*accept != '\0')
+		for (j = 0; accept[j] != '\0'; j++)
 		{
-			if (*s == *accept)
+			if (s[i] == accept[j])
 			{
 				len++;
 				break;
 			}
-			accept++;
 		}
-		if (*accept == '\0')
+		if (accept[j] == '\0')
 		{
 			return (len);
 		}
-		s++;
 	}
 	return (len);
 }

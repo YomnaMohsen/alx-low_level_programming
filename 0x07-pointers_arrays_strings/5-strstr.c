@@ -1,27 +1,6 @@
 #include "main.h"
 #include <stdio.h>
 
-/**
-* compare - compare 2 strings
-*@a: first string
-*@b: second string
-*Return: int
-*/
-
-int compare(char *a, char *b)
-{
-	while (*a && *b)
-	{
-		if (*a == *b)
-		{
-			a++;
-			b++;
-		}
-		else
-			return (0);
-	}
-	return (1);
-}
 
 /**
  * _strstr - finds the first occurrence of the substring  in  main string
@@ -31,12 +10,19 @@ int compare(char *a, char *b)
  */
 char *_strstr(char *haystack, char *needle)
 {
+	char *t;
 	while (*haystack != '\0')
 	{
-		if (*haystack == *needle && compare(haystack, needle))
-			return (haystack);
+		t = haystack;
+		while (*haystack == *needle && *haystack != '\0'&&  *needle != '\0')
+		{
+			haystack++;
+			needle++;
+		}
+		if(*needle == '\0')
+			return (t);
 
-		haystack++;
+		haystack = t + 1;
 	}
 
 	return (NULL);

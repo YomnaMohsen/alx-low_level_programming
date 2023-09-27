@@ -2,6 +2,28 @@
 #include <stdio.h>
 
 /**
+* compare - compare 2 strings
+*@a: first string
+*@b: second string
+*Return: int
+*/
+
+int compare(char *a, char *b)
+{
+	while (*a && *b)
+	{
+		if (*a == *b)
+		{
+			a++;
+			b++;
+		}
+		else
+			return (0);
+	}
+	return (1);
+}
+
+/**
  * _strstr - finds the first occurrence of the substring  in  main string
  * @haystack: string to search in
  * @needle: substring that needs to be located
@@ -9,23 +31,13 @@
  */
 char *_strstr(char *haystack, char *needle)
 {
-	int i, j = 0, count = 0;
-
-	for (i = 0; haystack[i] != '\0'; i++)
+	while (*haystack != '\0')
 	{
-		while (needle[j] != '\0')
-		{
-			if (haystack[i] == needle[j])
-			{
-				j++;
-				count++;
-			}
-			break;
-		}
-		if (needle[j] == '\0' && j != 0)
-		{
-			return (haystack + i - count + 1);
-		}
+		if (*haystack == *needle && compare(haystack, needle))
+			return (haystack);
+
+			haystack++;
 	}
+
 	return (NULL);
 }

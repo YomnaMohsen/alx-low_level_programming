@@ -33,5 +33,5 @@ int is_prime_number(int x)
 		return (1);
 	}
 
-	find_prime(x, 2);
+	return (find_prime(x, 2));
 }

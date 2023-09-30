@@ -2,11 +2,11 @@
 #include <stdio.h>
 
 /**
-*find_prime: helps to check whether number passed to is_prime_number
-*@x: int number to be checked
-*@n: int number that x will be divided by
-*Return: 1 if number is prime, 0 otherwise
-*/
+ * find_prime -  checks numbers that x are divisble by
+ * @x: int number to be checked
+ * @n: int number that x will be divided by
+ * Return: 1 if number is prime, 0 otherwise
+ */
 int find_prime(int x, int n)
 {
 	if (n == x / 2)

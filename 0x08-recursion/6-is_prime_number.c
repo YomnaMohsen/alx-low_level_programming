@@ -9,13 +9,13 @@
 */
 int find_prime(int x, int n)
 {
-	if (x == n)
+	if (n == x / 2)
 	{
 		return (1);
 	}
 	if (x % n == 0)
 		return (0);
-	find_prime(x, n + 1);
+	return  (find_prime(x, n + 1));
 
 }
 
@@ -26,10 +26,16 @@ int find_prime(int x, int n)
  */
 int is_prime_number(int x)
 {
-	if (x == 1)
+	int div = 2;
+
+	if (x <= 1)
+	{
+		return (0);
+	}
+	if (x == 2 || x == 3)
 	{
 		return (1);
 	}
 
-	return (find_prime(x, 2));
+	return (find_prime(x, div));
 }

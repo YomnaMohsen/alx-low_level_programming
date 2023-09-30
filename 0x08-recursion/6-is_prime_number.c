@@ -26,8 +26,6 @@ int find_prime(int x, int n)
  */
 int is_prime_number(int x)
 {
-	int n = 1;
-
 	if (x == 1)
 	{
 		return (1);

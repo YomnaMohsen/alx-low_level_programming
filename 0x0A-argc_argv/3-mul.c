@@ -1,28 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 /**
- * main - print mul of 2 arguments
+ * main -mul 2  arguments
  *@argc: number of command line arguments
  *@argv: array of pointers to strings
- * Return: 0 if 2 args passed else return 1
+ * Return: 1 if fails else 0
  */
 
-int  main(int argc, char **argv)
+int main(int argc, char **argv)
 {
-	int mul = 1;
+	int x, y,  result = 0;
 
-	if (argc < 2)
+	if (argc < 3)
 	{
-		printf("Error\n");
-		Return (1);
-	}
-
-
-		printf("%s", argv[count]);
+		printf("Error");
 		printf("\n");
-		count++;
+		return (1);
 	}
+	x = atoi(argv[1]);
+	y = atoi(argv[2]);
+	result = x * y;
+	printf("%d", result);
+	printf("\n");
 	return (0);
 }

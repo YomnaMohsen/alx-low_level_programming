@@ -26,8 +26,8 @@ int main(int argc, char *argv[])
 			}
 			result += atoi(argv[x]);
 		}
+	}
 		printf("%d", result);
 		printf("\n");
 		return (0);
-	}
 }

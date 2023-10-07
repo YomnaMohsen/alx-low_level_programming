@@ -2,26 +2,23 @@
 #include <stdlib.h>
 
 /**
- * create_array - fills array with a constant char
+ * _calloc - fills array with a constant byte
  * @size: number of location in array to be filled
- * @c: constant char
- * Return: pointer to array.
+ * @nmemb: constant element
+ * Return: void pointer.
  */
-char *create_array(unsigned int size, char c)
+void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	char *p;
-	unsigned int i = 0;
+	void *p;
 
-	p = malloc(sizeof(char) * size);
-	if (size == 0 || p == NULL)
+	if (size == 0 || nmemb == 0)
 	{
 		return (NULL);
 	}
-
-	while (i < size)
+	p = calloc(nmemb, size);
+	if (p == NULL)
 	{
-		p[i] = c;
-		i++;
+		return (NULL);
 	}
 	return (p);
 }

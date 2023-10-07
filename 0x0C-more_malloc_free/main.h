@@ -10,7 +10,7 @@ void print_chessboard(char (*a)[8]);
 void set_string(char **s, char *to);
 char *create_array(unsigned int size, char c);
 char *_strdup(char *str);
-char *str_nconcat(char *s1, char *s2, unsigned int b);
+char *string_nconcat(char *s1, char *s2, unsigned int b);
 void  *_calloc(unsigned int nmemb, unsigned int size);
 int *array_range(int min, int max);
 void *malloc_checked(unsigned int b);

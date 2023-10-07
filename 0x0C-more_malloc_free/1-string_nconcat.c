@@ -2,16 +2,16 @@
 #include <stdlib.h>
 
 /**
- * str_concat - concate 2 strings
- *
+ * string_nconcat - concate 2 strings
+ *@n : number of chars to concate
  *@s1: pointer to first string
  *@s2: pointer to second string
  *Return: pointer to newly allocated memory
  */
 
-char *str_concat(char *s1, char *s2)
+char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	int len = 0, len1 = 0, i = 0;
+	unsigned int len = 0, len1 = 0, i = 0;
 	char *p;
 
 	if (s1 == NULL)
@@ -33,12 +33,12 @@ char *str_concat(char *s1, char *s2)
 		len1++;
 	}
 
-	p = malloc(sizeof(char) * (len + len1 + 1));
+	p = malloc(sizeof(char) * (len + n + 1));
 	if (p == NULL)
 		return (NULL);
 	for (i = 0; i < len; i++)
 		p[i] = s1[i];
-	for (i = 0; i < len1; i++)
+	for (i = 0; i < n; i++)
 		p[i + len] = s2[i];
 	p[i + len] = '\0';
 	return (p);

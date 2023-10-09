@@ -28,7 +28,6 @@ int _atoi(char *s)
 		{
 			return (result);
 		}
-		
 		s++;
 	}
 	return (result * sign);

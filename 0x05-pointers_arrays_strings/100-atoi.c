@@ -24,17 +24,12 @@ int _atoi(char *s)
 			flag = 1;
 			result = result * 10 + (*s - '0');
 		}
-		if (*s < '0' || *s > '9')
+		else if (flag)
 		{
-			if (flag)
-			{
-				return (result);
-			}
+			return (result);
 		}
+		
 		s++;
 	}
-	if (!flag)
-		return (0);
 	return (result * sign);
-
 }

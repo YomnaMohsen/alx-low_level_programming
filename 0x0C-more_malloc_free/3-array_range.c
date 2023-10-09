@@ -2,26 +2,26 @@
 #include <stdlib.h>
 
 /**
- * create_array - fills array with a constant char
- * @size: number of location in array to be filled
- * @c: constant char
- * Return: pointer to array.
+ * array_range - fills allocatedarray with certain range of numbers
+ * @min: start of range
+ * @max: end of rrange
+ * Return: pointer. to allocated array
  */
-char *create_array(unsigned int size, char c)
+int *array_range(int min, int max)
 {
-	char *p;
-	unsigned int i = 0;
+	int *p, i;
 
-	p = malloc(sizeof(char) * size);
-	if (size == 0 || p == NULL)
+	if (min > max)
+		return (NULL);
+	p = malloc(sizeof(int) * (max - min) + 1);
+	if (p == NULL)
 	{
 		return (NULL);
 	}
-
-	while (i < size)
+	for (i = 0; i <= max; i++)
 	{
-		p[i] = c;
-		i++;
+		*(p + i) = min;
+		min++;
 	}
 	return (p);
 }

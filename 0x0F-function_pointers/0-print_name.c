@@ -2,6 +2,7 @@
  *print_name - print name
  *
  * @name: pointer to name string
+ * @f: function pointer
  * Return: nothing
  */
 

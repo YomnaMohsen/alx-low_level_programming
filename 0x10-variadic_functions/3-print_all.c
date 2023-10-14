@@ -10,10 +10,16 @@
 void print_all(const char *const format, ...)
 {
 	va_list ap;
-	int found = 0, i = 0;
+	int found = 0, len = 0,  i = 0;
 	char *s1;
 
 	va_start(ap, format);
+	while (format[i] != '\0')
+	{
+		len++;
+		i++;
+	}
+	i = 0;
 	while (format != NULL && format[i] != '\0')
 	{
 		switch (format[i])
@@ -40,7 +46,7 @@ void print_all(const char *const format, ...)
 			default:
 				found = 0;
 		}
-		if (found && format[i + 1] != '\0')
+		if (found && i < len - 1)
 			printf(", ");
 		i++;
 	}

@@ -3,6 +3,7 @@
 
 int s_len(char *s);
 char *m_cpy(char *d, char *s);
+dog_t *new_dog(char *name, float age, char *owner);
 
 /**
 *s_len - find string length

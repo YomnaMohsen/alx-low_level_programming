@@ -1,8 +1,9 @@
 #include "dog.h"
 #include <stdlib.h>
 
-char *m_cpy(char *d, char *s);
 int s_len(char *s);
+char *m_cpy(char *d, char *s);
+
 /**
 *s_len - find string length
 *@s: pointer to string

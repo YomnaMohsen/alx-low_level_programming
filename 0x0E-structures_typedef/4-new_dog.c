@@ -27,13 +27,12 @@ int s_len(char *s)
 */
 char *m_cpy(char *d, char *s)
 {
-	while (*s)
+	int index;
+	for (index = 0; s[index]; index++)
 	{
-		*d = *s;
-		d++;
-		s++;
+		d[index] = s[index];
 	}
-	*d = '\0';
+	d[index] = '\0';
 	return (d);
 }
 

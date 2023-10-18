@@ -28,6 +28,7 @@ int s_len(char *s)
 char *m_cpy(char *d, char *s)
 {
 	int index;
+
 	for (index = 0; s[index]; index++)
 	{
 		d[index] = s[index];

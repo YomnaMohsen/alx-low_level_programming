@@ -1,7 +1,8 @@
 #include "dog.h"
 #include <stdlib.h>
+
 /**
-free_dog - prints struct dog
+*free_dog - free struct dog
 *@d: pointer to struct dog
 *Return: Nothing
 */

@@ -2,19 +2,20 @@
 #include <stdlib.h>
 
 /**
-* free_list -  elemnets in linked list
-* @h: pointer to struct node
+* free_listint2 - frees linked list
+* @h: address of head  pointer of  struct node
 * Return: Nothing
 */
-void  free_list(list_t *h)
+void  free_listint2(listint_t **h)
 {
-	list_t *tmp;
+	listint_t *tmp;
 
-	while (h)
+	if (*h == NULL)
+		return;
+	while (*h)
 	{
-		tmp = h->next;
-		free(h->str);
-		free(h);
-		h = tmp;
+		tmp = (*h)->next;
+		free(*h);
+		*h = tmp;
 	}
 }

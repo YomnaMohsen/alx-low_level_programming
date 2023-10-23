@@ -1,5 +1,6 @@
 #include "lists.h"
 #include <string.h>
+#include <stdlib.h>
 
 /**
 * add_node - prints all elemnets in list
@@ -23,8 +24,13 @@ list_t *add_node(list_t **head, const char *s)
 		return (NULL);
 	}
 	tmp->str = s_d;
-	while (*(tmp->str))
+/*	for (len = 0; s_d[len] != '\0';)*/
+	while (*s)
+	{
+		s++;
 		len++;
+
+	}
 	tmp->len = len;
 	tmp->next = *head;
 	*head = tmp;

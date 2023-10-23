@@ -3,35 +3,19 @@
 #include <stdlib.h>
 
 /**
-* add_node - prints all elemnets in list
+* add_nodeint - add  elemnets at head of  list
 * @head: adress of  pointer to struct node
-* @s: pointer to string
+* @n:int value added to head of list
 * Return: pointer to struct node in case of sucess, or null
 */
-list_t *add_node(list_t **head, const char *s)
+listint_t *add_nodeint(listint_t **head, const int n)
 {
-	list_t *tmp;
-	int len = 0;
-	char *s_d;
+	listint_t *tmp;
 
-	tmp = malloc(sizeof(list_t));
+	tmp = malloc(sizeof(listint_t));
 	if (tmp == NULL)
 		return (NULL);
-	s_d = strdup(s);
-	if (s_d == NULL)
-	{
-		free(tmp);
-		return (NULL);
-	}
-	tmp->str = s_d;
-/*	for (len = 0; s_d[len] != '\0';)*/
-	while (*s)
-	{
-		s++;
-		len++;
-
-	}
-	tmp->len = len;
+	tmp->n = n;
 	tmp->next = *head;
 	*head = tmp;
 	return (tmp);

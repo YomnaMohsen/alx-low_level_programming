@@ -11,7 +11,7 @@
 */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	unsigned int index = 1;
+	unsigned int index = 0;
 	listint_t *new, *tmp;
 
 	tmp = *head;

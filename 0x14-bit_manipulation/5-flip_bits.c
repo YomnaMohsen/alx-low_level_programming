@@ -6,7 +6,7 @@
  * @m: long int we want to convert to
  * Return: number of bits to flip
  */
-unsigned int clear_bits(unsigned long int n, unsigned long int m)
+unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
 	unsigned long int xor, bits = 0;
 

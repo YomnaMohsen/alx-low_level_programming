@@ -11,7 +11,7 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 	unsigned long int xor, bits = 0;
 
 	xor = n ^ m;
-	while(xor)
+	while (xor)
 	{
 		xor = xor & (xor - 1);
 		bits++;

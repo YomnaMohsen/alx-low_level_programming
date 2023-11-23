@@ -11,11 +11,11 @@ void print_binary(unsigned long int n)
 	unsigned long int tmp;
 
 	tmp = n;
-	if(tmp == 0 || tmp == 1)
+	if (tmp == 0 || tmp == 1)
 	{
-	       _putchar(tmp + '0');
-	       return;
-	}	       
+		_putchar(tmp + '0');
+		return;
+	}
 	while (tmp > 1)
 	{
 		tmp = tmp >> 1;

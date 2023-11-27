@@ -4,9 +4,9 @@
 #include <fcntl.h>
 #include "main.h"
 
-
-char *create_buf(char *buf)
-{
+/**
+*char *create_buf(char *buf)
+*{
 	buf = malloc(sizeof(char) * 1024);
 	if (!buf)
 	{
@@ -14,8 +14,20 @@ char *create_buf(char *buf)
 	}
 	return (buf);
 }
-
-
+*/
+/**
+ * closefd - check if field descriptor closed normally or not
+ * @fd: int field descriptor
+ * Return: Nothing
+ */
+void closefd(int fd)
+{
+	if (close(fd) != 0)
+	{
+		dprintf(2, "Error: Can't close fd %i\n", fd);
+		exit(100);
+	}
+}
 /**
  * main - copies content of  file to another file
  * @argc: number of args passed to main
@@ -29,8 +41,8 @@ char *create_buf(char *buf)
  */
 int main(int argc, char **argv)
 {
-	int from, to, wr, len = 0;
-	char * buf;
+	int from, to, re = -1, wr;
+	char buf[1024];
 
 	if (argc != 3)
 	{
@@ -38,20 +50,27 @@ int main(int argc, char **argv)
 		exit (97);
 	}
 	from = open(argv[1], O_RDONLY);
-	if (from == -1)
+	while (re != 0)
 	{
-		dprintf(2, "Error: Can't read from file %s", argv[1]);
-		exit(98);
-	}
+		re = read(from, buf, 1024);
+		if (from == -1 || re == -1)
+		{
+			dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+			exit(98);
+		}
+	
 	to = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
-	buf = create_buf(buf);
+/*	buf = create_buf(buf);*/
 	wr = write(to, buf, 1024);
-	if (to == -1 || wr == -1 || !buf)
+	if (to == -1 || wr == -1 )
 	{
-		dprintf(2, "Error: Can't write to file %s", argv[2]);
-		free(buf);
+		dprintf(2, "Error: Can't write to file %s\n", argv[2]);
+/*		free(buf);*/
 		exit(99);
 	}
-	close(fo);
+	to = open(argv[2], O_APPEND | O_WRONLY);
+	}
+	closefd(from);
+	closefd(to);
 	return (0);
 }

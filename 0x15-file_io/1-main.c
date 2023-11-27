@@ -11,7 +11,7 @@ int main(int ac, char ** av)
 		printf("error");
 		return (0);
 	}
-		n = append_text_to_file(av[1],av[2]);
+		n = create_file(av[1],av[2]);
 		printf("%i", n);
 
 	return (0);

@@ -22,9 +22,9 @@
  */
 void closefd(int fd)
 {
-	if (close(fd) != 0)
+	if (close(fd) == -1)
 	{
-		dprintf(2, "Error: Can't close fd %i\n", fd);
+		dprintf(2, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
 }
@@ -39,9 +39,9 @@ void closefd(int fd)
  * 		if write in file_to fails or file cannot be created- exit code 99
  * 		if file_to or file_from cannot be closed -exit code 100 
  */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-	int from, to, re = -1, wr;
+	int from, to, re;
 	char buf[1024];
 
 	if (argc != 3)
@@ -50,26 +50,31 @@ int main(int argc, char **argv)
 		exit (97);
 	}
 	from = open(argv[1], O_RDONLY);
-	while (re != 0)
+	if (from == -1)
 	{
-		re = read(from, buf, 1024);
-		if (from == -1 || re == -1)
+		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+	to = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
+	if (to == -1)
+	{
+		dprintf(2, "Error: Can't write to file %s\n", argv[2]);
+		exit(99);
+	}
+	while ((re = read(from, buf, 1024)) > 0)
+	{
+		if ((write(to, buf, re) != re)) 
+		{
+			dprintf(2, "Error: Can't write to file %s\n", argv[2]);
+			exit(99);
+		}
+	}
+		if (re == -1)
 		{
 			dprintf(2, "Error: Can't read from file %s\n", argv[1]);
 			exit(98);
 		}
 	
-	to = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
-/*	buf = create_buf(buf);*/
-	wr = write(to, buf, 1024);
-	if (to == -1 || wr == -1 )
-	{
-		dprintf(2, "Error: Can't write to file %s\n", argv[2]);
-/*		free(buf);*/
-		exit(99);
-	}
-	to = open(argv[2], O_APPEND | O_WRONLY);
-	}
 	closefd(from);
 	closefd(to);
 	return (0);

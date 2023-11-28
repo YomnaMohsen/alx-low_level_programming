@@ -42,14 +42,14 @@ int main(int argc, char *argv[])
 	to = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
 	if (to == -1)
 	{
-		dprintf(2, "Error: Can't write to file %s\n", argv[2]);
+		dprintf(2, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
 	while ((re = read(from, buf, 1024)) > 0)
 	{
 		if (write(to, buf, re) != re)
 		{
-			dprintf(2, "Error: Can't write to file %s\n", argv[2]);
+			dprintf(2, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
 		}
 	}

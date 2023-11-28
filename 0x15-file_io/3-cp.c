@@ -25,7 +25,7 @@ void closefd(int fd)
  */
 int main(int argc, char *argv[])
 {
-	int from, to, re;
+	int from, to, re = -1, wr;
 	char buf[1024];
 
 	if (argc != 3)
@@ -45,18 +45,20 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
-	while ((re = read(from, buf, 1024)) > 0)
+	while (re != 0)
 	{
-		if (write(to, buf, re) != re)
+		re = read(from, buf, 1024);
+		if (re == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			exit(99);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			exit(98);
 		}
-	}
-	if (re == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
+			wr = write(to, buf, re);
+			if (wr == -1)
+			{
+				dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+				exit(99);
+			}
 	}
 	closefd(from);
 	closefd(to);

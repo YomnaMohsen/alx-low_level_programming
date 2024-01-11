@@ -16,10 +16,6 @@ unsigned int idx, int n)
 	dlistint_t *new, *tmp;
 
 	tmp = *head;
-	new = malloc(sizeof(dlistint_t));
-	if (new == NULL)
-		return (NULL);
-	new->n = n;
 	if (idx == 0)
 	{
 		return (add_dnodeint(head, n));
@@ -34,9 +30,14 @@ unsigned int idx, int n)
 	if (tmp->next == NULL)
 		return (add_dnodeint_end(head, n));
 
+	new = malloc(sizeof(dlistint_t));
+	if (new == NULL)
+		return (NULL);
+
+	new->n = n;
 	new->prev = tmp;
 	new->next = tmp->next;
+	tmp->next->prev = new;
 	tmp->next = new;
-	new->next->prev = new;
 	return (new);
 }

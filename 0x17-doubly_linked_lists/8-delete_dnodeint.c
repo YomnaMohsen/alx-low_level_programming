@@ -41,6 +41,5 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int idx)
 	{
 		t->prev = tmp;
 	}
-	
 	return (1);
 }

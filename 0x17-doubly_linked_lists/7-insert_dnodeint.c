@@ -1,6 +1,7 @@
 #include "lists.h"
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
 * insert_dnodeint_at_index - insert node at sepecific index in dlinkedlist
@@ -28,12 +29,12 @@ unsigned int idx, int n)
 		index++;
 	}
 	if (tmp->next == NULL)
+	{
 		return (add_dnodeint_end(head, n));
-
+	}
 	new = malloc(sizeof(dlistint_t));
 	if (new == NULL)
 		return (NULL);
-
 	new->n = n;
 	new->prev = tmp;
 	new->next = tmp->next;

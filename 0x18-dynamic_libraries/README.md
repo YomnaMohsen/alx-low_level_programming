@@ -1,0 +1,1 @@
+This folder conatins tasks about creating and using dynamic libraries in linux using c langauge

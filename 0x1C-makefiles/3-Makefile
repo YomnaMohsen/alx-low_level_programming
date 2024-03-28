@@ -9,10 +9,13 @@ all:   $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-clean: $(RM) *~ $(NAME) 
+clean:
+	$(RM) *~ $(NAME) 
 
-oclean: $(RM) $(OBJ)
+oclean: 
+	$(RM) $(OBJ)
 
-fclean: clean oclean
+fclean: 
+	clean oclean
 
 re: fclean all
